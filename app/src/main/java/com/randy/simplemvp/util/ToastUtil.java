@@ -1,4 +1,4 @@
-package com.randy.simplemvp.utils;
+package com.randy.simplemvp.util;
 
 import android.annotation.SuppressLint;
 import android.widget.Toast;
@@ -7,7 +7,7 @@ import android.widget.Toast;
  * Author: randy(dddrandy@gmail.com)
  * Date: 2017/2/16
  * Time: 14:52
- * Description: TODO
+ * Description: Toast util
  */
 
 public class ToastUtil {
@@ -24,7 +24,7 @@ public class ToastUtil {
     @SuppressLint("ShowToast")
     private static Toast getToast(String string, int duration) {
         if (toast == null) {
-//            toast = Toast.makeText(MPApp.getInstance(), string, duration);
+            toast = Toast.makeText(JokeApp.mInstance, string, duration);
         } else {
             toast.setText(string);
         }
