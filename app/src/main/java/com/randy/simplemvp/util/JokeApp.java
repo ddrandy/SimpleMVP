@@ -16,6 +16,10 @@ public class JokeApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // get application context
         mInstance = this;
+
+        // init volley
+        VolleyRequest.buildRequestQueue(this);
     }
 }
