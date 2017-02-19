@@ -1,5 +1,7 @@
 package com.randy.simplemvp.model;
 
+import com.randy.simplemvp.presenter.OnJokeListener;
+
 /**
  * Author: randy(dddrandy@gmail.com)
  * Date: 2017/2/17
@@ -15,5 +17,5 @@ public interface JokeModel {
      * @param pNum  page number
      * @param pSize page size
      */
-    void getJoke(String pNum, String pSize);
+    void getJoke(String pNum, String pSize, OnJokeListener jokeListener);
 }

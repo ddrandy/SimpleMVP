@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@id/tv_joke_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="30"
+        android:textColor="@color/colorDark"
+        tools:text=" 刚才肚子饿下去吃夜宵，遇见一刚下班的程序猿来吃晚饭，一脸落魄。我坐他旁边跟他说：年轻人，生活总是苦尽甘来有笑有泪的，你看我，我五点半就下班了。"/>
+
+    <TextView
+        android:id="@id/tv_joke_add_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorGray"
+        tools:text="2016-05-19 16:59:40"/>
+</LinearLayout>

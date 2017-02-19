@@ -21,21 +21,21 @@ import java.io.UnsupportedEncodingException;
 public class GsonRequest<T> extends Request<T> {
 
     private Class<T> mCls;
-    private Gson mGson = new Gson();
-    private Response.Listener<T> mListener;
+    private static Gson mGson = new Gson();
+    private final Response.Listener<T> mListener;
     private TypeToken<T> mTypeToken;
 
-    public GsonRequest(int method, String url, Class<T> cls, Response.Listener<T> listener, Response.ErrorListener errorListener) {
+    GsonRequest(int method, String url, Class<T> cls, Response.Listener<T> listener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         mCls = cls;
         mListener = listener;
     }
 
-    public GsonRequest(String url, Class<T> cls, Response.Listener<T> listener, Response.ErrorListener errorListener) {
+    GsonRequest(String url, Class<T> cls, Response.Listener<T> listener, Response.ErrorListener errorListener) {
         this(Method.GET, url, cls, listener, errorListener);
     }
 
-    public GsonRequest(int method, String url, TypeToken<T> typeToken, Response.Listener<T> listener, Response.ErrorListener errorListener) {
+    GsonRequest(int method, String url, TypeToken<T> typeToken, Response.Listener<T> listener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         mTypeToken = typeToken;
         mListener = listener;
@@ -51,12 +51,12 @@ public class GsonRequest<T> extends Request<T> {
     @Override
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
-            String stringJson = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+            String jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
             if (mTypeToken == null) {
-                return Response.success(mGson.fromJson(stringJson, mCls),
+                return Response.success(mGson.fromJson(jsonString, mCls),
                         HttpHeaderParser.parseCacheHeaders(response));
             } else {
-                return (Response<T>) Response.success(mGson.fromJson(stringJson, mTypeToken.getType()),
+                return (Response<T>) Response.success(mGson.fromJson(jsonString, mTypeToken.getType()),
                         HttpHeaderParser.parseCacheHeaders(response));
             }
         } catch (UnsupportedEncodingException e) {

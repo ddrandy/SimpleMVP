@@ -12,6 +12,11 @@ import com.randy.simplemvp.entity.Joke;
 public interface JokeView {
 
     /**
+     * 设置数据
+     */
+    void setJoke(Joke joke);
+
+    /**
      * 加载数据
      */
     void loading();
@@ -25,9 +30,4 @@ public interface JokeView {
      * 加载出错
      */
     void onError();
-
-    /**
-     * 设置数据
-     */
-    void setJoke(Joke joke);
 }

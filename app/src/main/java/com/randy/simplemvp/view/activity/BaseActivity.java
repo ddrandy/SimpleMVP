@@ -1,4 +1,4 @@
-package com.randy.simplemvp.ui;
+package com.randy.simplemvp.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

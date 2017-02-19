@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley;
  * Description: custom Volley request class
  */
 
+@SuppressWarnings("WeakerAccess")
 public class VolleyRequest {
 
     private static RequestQueue mRequestQueue;
@@ -23,7 +24,7 @@ public class VolleyRequest {
         }
     }
 
-    public static VolleyRequest Instance() {
+    public static VolleyRequest newInstance() {
         if (mRequestQueue == null) {
             throw new NullPointerException("Call buildRequestQueue first.");
         }
